@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paleto Repairs Mechanic Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Paleto Repairs Dashboard</h1>
+    <div id="login-section">
+      <input type="text" id="mechanicNameInput" placeholder="Enter your name" />
+      <button id="loginBtn">Login</button>
+    </div>
+    <div id="userSection" style="display:none;">
+      Logged in as <span id="currentMechanic"></span> 
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main style="display:none;" id="dashboard">
+    <section id="clockSection">
+      <h2>Clock In / Clock Out</h2>
+      <button id="clockInBtn">Clock In</button>
+      <button id="clockOutBtn">Clock Out</button>
+      <p id="clockStatus">Not clocked in</p>
+    </section>
+
+    <section id="repairLogSection">
+      <h2>Log a Repair</h2>
+      <form id="repairForm">
+        <label>
+          Customer Name:<br/>
+          <input type="text" id="customerName" required />
+        </label><br/>
+        <label>
+          Vehicle Plate:<br/>
+          <input type="text" id="vehiclePlate" required />
+        </label><br/>
+        <label>
+          Vehicle Model:<br/>
+          <input type="text" id="vehicleModel" required />
+        </label><br/>
+        <label>
+          Repairs Performed:<br/>
+          <textarea id="repairDetails" rows="3" required></textarea>
+        </label><br/>
+        <label>
+          Parts Used:<br/>
+          <input type="text" id="partsUsed" />
+        </label><br/>
+        <label>
+          Price ($):<br/>
+          <input type="number" id="price" required min="0" step="0.01" />
+        </label><br/>
+        <button type="submit">Submit Repair</button>
+      </form>
+    </section>
+
+    <section id="repairLogsSection">
+      <h2>Repair Logs</h2>
+      <table id="logsTable" border="1">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Mechanic</th>
+            <th>Customer</th>
+            <th>Plate</th>
+            <th>Model</th>
+            <th>Repair Details</th>
+            <th>Parts Used</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="logsBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
